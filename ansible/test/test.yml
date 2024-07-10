@@ -1,0 +1,15 @@
+---
+- name: simple script
+  hosts: localhost
+  tasks:
+    - name: Run a commands
+      ansible.builtin.shell: |
+              ls -al
+              pwd
+              ./hello.sh
+              cd /home/greg/repos2/dynocaps/ansible/test/
+              ls -al
+      register: out
+    - debug: var=out.stdout_lines
+          #    - name: simple script
+          #      command: /home/greg/repos2/dynocaps/ansible/test/hello.sh
